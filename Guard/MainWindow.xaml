@@ -1,0 +1,67 @@
+﻿<Window x:Class="Guard.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Guard"
+        mc:Ignorable="d"
+        Title="АРМ Проходная" Width="1024" Height="768"  MinWidth="1024" MinHeight="768" WindowState="Maximized">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Background="Azure" >
+            <Button x:Name="MonitoringBtn" Background="Transparent" BorderBrush="Transparent" Margin="10,0,0,0" Click="MonitoringBtn_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="Resources/Computer.png"/>
+                    <TextBlock  Text="Мониторинг" FontSize="16" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="EventsBtn" Background="Transparent" BorderBrush="Transparent" Margin="10,0,0,0" Click="EventsBtn_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="Resources/Recent.png"/>
+                    <TextBlock Text="События" FontSize="16" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="ReportsBtn" Background="Transparent" BorderBrush="Transparent" Margin="10,0,0,0" Click="ReportsBtn_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="Resources/History.png"/>
+                    <TextBlock Text="Отчёты" FontSize="16" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="OwnersBtn" Background="Transparent" BorderBrush="Transparent" Margin="10,0,0,0" Click="OwnersBtn_Click" Visibility="Hidden">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="Resources/Users.png"/>
+                    <TextBlock Text="Сотрудники" FontSize="16" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="KeyBtn" Background="Transparent" BorderBrush="Transparent" Margin="10,0,0,0" Click="KeyBtn_Click" Visibility="Hidden">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="Resources/Key.png"/>
+                    <TextBlock Text="Идентификаторы" FontSize="16" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="SettingsBtn" Background="Transparent" BorderBrush="Transparent" Margin="10,0,0,0" Click="SettingsBtn_Click" Visibility="Hidden">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="Resources/Settings.png"/>
+                    <TextBlock Text="Настройки" FontSize="16" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+        <Button x:Name="AdminBtn" HorizontalAlignment="Right"  Background="Transparent" BorderBrush="Transparent" Margin="0,0,10,0" Click="AdminBtn_Click">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="Resources/User.png"/>
+                <TextBlock Text="Администратор" FontSize="16" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Button>
+        <Button x:Name="UserBtn" HorizontalAlignment="Right"  Background="Transparent" BorderBrush="Transparent" Margin="0,0,10,0" Click="UserBtn_Click" Visibility="Hidden">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="Resources/User.png"/>
+                <TextBlock Text="Пользователь" FontSize="16" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Button>
+        <Frame x:Name="MainFrame" Grid.Row="1" NavigationUIVisibility="Hidden"></Frame>
+    </Grid>
+</Window>
+

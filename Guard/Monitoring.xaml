@@ -1,0 +1,62 @@
+﻿<Page x:Class="Guard.Monitoring"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Guard"
+      xml:lang="ru-RU"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Monitoring">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Background="Silver">
+            <TextBlock Text="Последние события" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </StackPanel>
+        <ListBox x:Name="eventlist" Grid.Row="1">
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="ListBoxItem">
+                                <ContentPresenter/>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </ListBox.ItemContainerStyle>
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Columns="2"/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Border BorderThickness ="1" BorderBrush="Black" Width="250" Height="250" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="50">
+                            <Image Source = "{Binding Owner.Photo, FallbackValue=Resources/User.png}"/>
+                        </Border>
+                        <Grid Margin="20" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="{Binding Owner.LastName, FallbackValue='Неизвестный'}" FontSize="32" FontFamily="Calibri"/>
+                            <TextBlock Grid.Row="1" Text="{Binding Owner.FirstName, FallbackValue='Посетитель'}" FontSize="32" FontFamily="Calibri"/>
+                            <TextBlock Grid.Row="2" Text="{Binding Owner.Patronymic}" FontSize="32" FontFamily="Calibri"/>
+                            <TextBlock Grid.Row="3" Text="{Binding EventType.Name}" Width="400" TextWrapping="Wrap" HorizontalAlignment="Left" FontSize="36" FontFamily="Calibri" Foreground="MediumVioletRed" Margin="0,10,0,0"/>
+                            <TextBlock Grid.Row="4" Text="{Binding DateTime, StringFormat = F}" FontSize="32" FontFamily="Calibri" Foreground="MediumBlue" Margin="0,10,0,0"/>
+                        </Grid>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</Page>

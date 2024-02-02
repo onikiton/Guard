@@ -1,0 +1,38 @@
+﻿<Page x:Class="Guard.Events"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Guard"
+      xml:lang="ru-RU"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Events">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Background="Silver">
+            <TextBlock Text="Cобытия" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </StackPanel>
+        <DataGrid x:Name ="eventgrid" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Single" >
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="FontSize" Value="16"/>
+                    <Setter Property="FontWeight" Value="DemiBold"/>
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn FontSize="16" Header="Дата и время" Binding ="{Binding DateTime, StringFormat = g}"></DataGridTextColumn>
+                <DataGridTextColumn FontSize="16" Header="Событие" Binding ="{Binding EventType.Name}"></DataGridTextColumn>
+                <DataGridTextColumn FontSize="16" Header="Фамилия" Binding ="{Binding Owner.LastName,FallbackValue='Неизвестно'}"></DataGridTextColumn>
+                <DataGridTextColumn FontSize="16" Header="Имя" Binding ="{Binding Owner.FirstName,FallbackValue='Неизвестно'}"></DataGridTextColumn>
+                <DataGridTextColumn FontSize="16" Header="Отчество" Binding ="{Binding Owner.Patronymic,FallbackValue='Неизвестно'}"></DataGridTextColumn>
+                <DataGridTextColumn FontSize="16" Header="Отдел" Binding ="{Binding Owner.Department.Name,FallbackValue='Неизвестно'}"></DataGridTextColumn>
+                <DataGridTextColumn FontSize="16" Header="Номер ключа" Binding ="{Binding Owner.KeyId}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>
